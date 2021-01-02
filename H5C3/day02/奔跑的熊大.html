@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ccc;
+    }
+
+    div {
+      position: absolute;
+      width: 200px;
+      height: 100px;
+      background: url("media/bear.png") no-repeat;
+      /*元素可以添加多个动画*/
+      animation: bear 1s steps(8) infinite, bear2 3s linear forwards;
+    }
+
+    @keyframes bear {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -1600px 0;
+      }
+    }
+
+    @keyframes bear2 {
+      0% {
+        left: 0;
+      }
+      100% {
+        left: 50%;
+        /*margin-left: -100px;*/
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

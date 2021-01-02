@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>热点图</title>
+  <style>
+    body {
+      background-color: #333;
+    }
+
+    .map {
+      position: relative;
+      width: 747px;
+      height: 617px;
+      background: url("media/map.png") no-repeat;
+      margin: 0 auto;
+    }
+
+    .city {
+      position: absolute;
+      top: 227px;
+      right: 193px;
+      color: #fff;
+    }
+
+    .taibei {
+      top: 500px;
+      right: 80px;
+    }
+
+    .dotted {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #09f;
+    }
+
+    .city div[class^='wave'] {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      box-shadow: 0 0 12px #009dfd;
+      border-radius: 50%;
+      animation: wave 1.2s linear infinite;
+    }
+
+    /*权重*/
+    .wave2 {
+      animation-delay: 0.4s !important;
+    }
+
+    .wave3 {
+      animation-delay: 0.8s !important;
+    }
+
+    @keyframes wave {
+      0% {
+
+      }
+      70% {
+        /*不用scale是因为阴影也会变大*/
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+      }
+      100% {
+        width: 70px;
+        height: 70px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="map">
+  <div class="city">
+    <div class="dotted"></div>
+    <div class="wave1"></div>
+    <div class="wave2"></div>
+    <div class="wave3"></div>
+  </div>
+  <div class="city taibei">
+    <div class="dotted"></div>
+    <div class="wave1"></div>
+    <div class="wave2"></div>
+    <div class="wave3"></div>
+  </div>
+</div>
+</body>
+</html>
