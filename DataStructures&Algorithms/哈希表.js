@@ -8,50 +8,54 @@ function HashTable() {
   this.count = 0
   this.limit = 7
 
-  HashTable.prototype.HashFunc = (str, size) => {
+  HashTable.prototype.hashFunc = function (str, size) {
     let hashCode = 0
+
     for (let i = 0; i < str.length; i++) {
       hashCode = 37 * hashCode + str.charCodeAt(i)
     }
     return hashCode % size
   }
 
-  HashTable.prototype.put = (key, val) => {
-    let index = this.HashFunc(key, this.limit)
+  HashTable.prototype.put = function (key, value) {
+    let index = this.hashFunc(key, this.limit)
+
     let bucket = this.storage[index]
 
-    // 没有就new个桶
-    if (!bucket) {
+    if (bucket == null) {
       bucket = []
       this.storage[index] = bucket
     }
-    // key已存在就替换val
+
     for (let i = 0; i < bucket.length; i++) {
-      let tuple = bucket[i]
+      let tuple = bucket[i];
       if (tuple[0] === key) {
-        tuple[1] = val
+        tuple[1] = value
         return
       }
     }
-    // 入
-    bucket.push([key, val])
-    this.count++
+
+    bucket.push([key, value])
+    this.count += 1
+
     if (this.count > this.limit * 0.75) {
-      this.resize(this.limit * 2)
+      let newSize = this.limit * 2
+      let newPrime = this.getPrime(newSize)
+      this.resize(newPrime)
     }
   }
 
-  HashTable.prototype.get = key => {
-    let index = this.HashFunc(key, this.limit)
+  HashTable.prototype.get = function (key) {
+    let index = this.hashFunc(key, this.limit)
+
     let bucket = this.storage[index]
 
-    // undefined === null false
-    // undefined == null true
-    if (!bucket) {
+    if (bucket == null) {
       return null
     }
+
     for (let i = 0; i < bucket.length; i++) {
-      let tuple = bucket[i]
+      let tuple = bucket[i];
       if (tuple[0] === key) {
         return tuple[1]
       }
@@ -59,60 +63,79 @@ function HashTable() {
     return null
   }
 
-  HashTable.prototype.remove = key => {
-    let index = this.HashFunc(key, this.limit)
+  HashTable.prototype.remove = function (key) {
+    let index = this.hashFunc(key, this.limit)
+
     let bucket = this.storage[index]
 
-    if (!bucket) {
+    if (bucket == null) {
       return null
     }
+
     for (let i = 0; i < bucket.length; i++) {
       let tuple = bucket[i]
       if (tuple[0] === key) {
-        // 在第i这个位置删除1个元素
         bucket.splice(i, 1)
-        this.count--
-        return tuple[1]
+        this.count -= 1
+
         if (this.limit > 7 && this.count < this.limit * 0.25) {
-          this.resize(Math.floor(this.limit / 2))
+          let newSize = Math.floor(this.limit / 2)
+          let newPrime = this.getPrime(newSize)
+          this.resize(newPrime)
         }
+        return tuple[1]
       }
     }
     return null
   }
 
-  HashTable.prototype.isEmpty = () => {
+  HashTable.prototype.isEmpty = function () {
     return this.count === 0
   }
 
-  HashTable.prototype.size = () => {
+  HashTable.prototype.size = function () {
     return this.count
   }
 
-  HashTable.prototype.resize = newLimit => {
-    let old = this.storage
+  HashTable.prototype.resize = function (newLimit) {
+    let oldStorage = this.storage
+
     this.storage = []
     this.count = 0
     this.limit = newLimit
 
-    for (let i = 0; i < old.length; i++) {
-      let bucket = old[i]
-      if (!bucket) {
+    for (let i = 0; i < oldStorage.length; i++) {
+      const bucket = oldStorage[i];
+
+      if (bucket == null) {
         continue
       }
+
       for (let j = 0; j < bucket.length; j++) {
-        let tuple = bucket[i]
+        const tuple = bucket[j];
         this.put(tuple[0], tuple[1])
       }
     }
   }
 
+  HashTable.prototype.isPrime = function (num) {
+    if (num <= 1) {
+      return false
+    }
 
+    for (var i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  HashTable.prototype.getPrime = function (num) {
+    //7*2=14,+1=15,+1=16,+1=17(质数)
+    while (!this.isPrime(num)) {
+      num++
+    }
+    return num
+  }
 }
-
-let ht = new HashTable()
-ht.put('abc', 123)
-ht.put('cba', 321)
-ht.put('nba', 521)
-ht.put('mba', 520)
-console.log(ht.get('abc'))
