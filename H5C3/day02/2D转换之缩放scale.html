@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>缩放</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: deeppink;
+      margin: 100px auto;
+      transition: all 1s;
+      /*transform-origin: left bottom;*/
+    }
+
+    div:hover {
+      /*放大: 宽度2倍 高度2倍 下面两种写法*/
+      /*transform: scale(2, 2);*/
+      /*transform: scale(2);*/
+      /*缩小*/
+      transform: scale(0.5, 0.5);
+      /*scale的优势: 不影响其他盒子 而且可以设置缩放中心点*/
+    }
+  </style>
+</head>
+<body>
+<div></div>
+123
+</body>
+</html>

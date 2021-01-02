@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      width: 150px;
+      /*顺时针45度*/
+      /*transform: rotate(45deg);*/
+      border-radius: 50%;
+      border: 1px solid red;
+      /*过渡写到本身上*/
+      transition: all 1s;
+    }
+
+    img:hover {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+<img src="media/pic.jpg" alt="null">
+</body>
+</html>

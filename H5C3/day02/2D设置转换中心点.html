@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px auto;
+      transition: all 1s;
+      /*左下角为支点旋转 默认是50% 50% center center*/
+      transform-origin: left bottom;
+    }
+
+    div:hover {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
