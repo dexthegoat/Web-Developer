@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      perspective: 300px;
+    }
+
+    img {
+      display: block;
+      margin: 100px auto;
+      transition: all 1s;
+    }
+
+    img:hover {
+      /*正值往后倒 负值往前倒*/
+      /*transform: rotateX(360deg);*/
+      /*rotateY就是钢管舞 正值是右侧往里先倒*/
+      /*transform: rotateY(360deg);*/
+      /*rotateZ 正值就像顺时针旋转*/
+      /*矢量*/
+      transform: rotate3d(1, 1, 0, 180deg);
+    }
+  </style>
+</head>
+<body>
+<img src="media/pig.jpg" alt="">
+</body>
+</html>
