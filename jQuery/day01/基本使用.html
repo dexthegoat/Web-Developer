@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+  <style>
+    div {
+      height: 200px;
+      width: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<div class="box"></div>
+<video src="" muted></video>
+<script>
+  // $('div').hide()
+  // dom加载完毕再执行js代码
+  // $相当于window 是jquery顶级对象
+  $(function () {
+    $('div').hide()
+  })
+  // 原生dom对象 dom对象只能用原生js属性方法
+  let div = document.querySelector('div')
+  console.log(div)
+  // jq对象只能用jq里面的方法
+  let div2 = $('div')
+  console.dir(div2)
+  // dom转jq对象
+  let video = document.querySelector('video')
+  // 原生的才有play方法
+  video.play()
+  $(video)
+  // jq -> dom 就能播放了
+  $('video')[0].play()
+
+  $('.box')
+  $('ul li')
+  $('')
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<ol>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+</ol>
+<script>
+  // console.log($('div'))
+  // 饮食迭代: 不需要我们自己用for循环就把选中的4个div都添加了css
+  $('div').css('background', 'pink')
+  $('ul li').css('color', 'red')
+  $(function () {
+    $('ol li:first').css('color', 'blue')
+    $('ol li:eq(1)').css('color', 'deeppink')
+    $('ol li:odd').css('font-size', '20px')
+  })
+</script>
+</body>
+</html>
