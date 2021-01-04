@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<ol>
+  <li>ol li</li>
+  <li>ol li</li>
+  <li class="item">ol li</li>
+  <li>ol li</li>
+  <li>ol li</li>
+  <li>ol li</li>
+</ol>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+</ul>
+<div class="cur">current</div>
+<div></div>
+<script>
+  $(function () {
+    // 除了自己的所有亲兄弟
+    $('ol .item').siblings('li').css('color', 'red')
+    // 还有nextAll() prevAll()
+    // $('ul li:eq(2)').css('color', 'blue')
+    $('ul li').eq(2).css('color', 'blue')
+    let flag = $('div:first').hasClass('cur')
+    console.log($('div:last').hasClass('cur')) // false
+    console.log(flag) // true
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<div class="fat">
+  <div class="son">son</div>
+</div>
+<div class="nav">
+  <p>p</p>
+  <div>
+    <p>pp</p>
+  </div>
+</div>
+<script>
+  $(function () {
+    // 返回的是最近一级的父元素 亲爸爸
+    console.log($('.son').parent())
+    // 找亲儿子 .nav>p
+    // $('.nav').children('p').css('color', 'red')
+    // 后代选择器=> .nav p
+    $('.nav').find('p').css('color', 'red')
+  })
+</script>
+</body>
+</html>
