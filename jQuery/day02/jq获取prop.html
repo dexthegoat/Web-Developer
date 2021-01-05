@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<a href="http://www.baodu.com"></a>
+<input type="checkbox" name="" id="" checked>
+<div index="1" data-index="2">我div</div>
+<span>123</span>
+<script>
+  $(function () {
+    console.log($('a').prop('href'));
+    // 添加属性
+    $('a').prop('title', 'jsy')
+    $('input').change(() => {
+      console.log($(this).prop('checked'))
+    })
+    // attr 获取自定义属性
+    console.log($('div').attr('index'))
+    console.log($('div').attr('data-index'))
+    // 数据缓存data() 存在元素的缓存里面
+    $('span').data('uname', 'andy')
+    console.log($('span').data('uname'))
+    // 获取data-index h5自定义属性不用写data- 而且返回的是数字型
+    console.log($('div').data('index'))
+  })
+</script>
+</body>
+</html>
