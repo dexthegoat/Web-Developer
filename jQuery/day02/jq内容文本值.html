@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<div>
+  <span>123</span>
+</div>
+<input type="text" value="456">
+<script>
+  console.log($('div').html());
+  // $('div').html('123')
+  // 忽略标签
+  console.log($('div').text());
+  console.log($('input').val());
+  $('input').val('123')
+  console.log($('input').val());
+</script>
+</body>
+</html>

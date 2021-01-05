@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<script>
+  $(() => {
+    let arr = ['red', 'blue', 'green']
+    let sum = 0
+    $('div').each((index, domEle) => {
+      // 第二个参数是dom对象 不是jq对象 用$()转成jq对象
+      $(domEle).css('color', arr[index])
+      sum += parseInt($(domEle).text())
+      console.log(sum)
+
+      $.each($('div'), (index, ele) => {
+        console.log(index);
+        console.log(ele);
+      })
+
+      $.each(arr, (index, ele) => {
+        console.log(index);
+        console.log(ele);
+      })
+
+      $.each({
+        name: 'andy',
+        age: 23
+      }, (key, val) => {
+        console.log(key); // name age属性名
+        console.log(val); // andy 23属性值
+      })
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<ul>
+  <li>原先的li</li>
+</ul>
+<div class="test">原先的div</div>
+<script>
+  $(() => {
+    let li = $('<li>我是新的li</li>')
+    let div = $('<div>后妈生的div</div>')
+    // append放匹配元素内部的最后面 生成之后是父子关系
+    $('ul').append(li)
+    // $('ul').prepend(li)
+    $('div').after(div) // 生成之后是兄弟关系
+
+    // $('ul').remove() 自删
+    // $('ul').empty() 删除所有子元素
+    // $('ul').html('') 跟上一行等价
+  })
+</script>
+</body>
+</html>
