@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>on绑定</title>
+  <script src="../jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+
+    .cur {
+      background-color: deeppink;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<ul>
+  <li>111</li>
+  <li>1111</li>
+</ul>
+<ol>
+  <li>2222</li>
+  <li>222</li>
+  <li>222</li>
+  <li>222</li>
+</ol>
+<script>
+  $(function () {
+    // 单个时间绑定
+    // $('div').click(() => {
+    //   $(this).css('background', 'purple')
+    // })
+    // $('div').mouseover(() => {
+    //   $(this).css('background', 'skyblue')
+    // })
+    // 可以绑定多个事件
+    // $('div').on({
+    //   mouseenter: function () {
+    //     $(this).css('background', 'skyblue')
+    //   },
+    //   click: () => {
+    //     $(this).css('background', 'purple')
+    //   },
+    //   mouseleave: () => {
+    //     $(this).css('background', 'black')
+    //   }
+    // })
+    $('div').on('mouseenter mouseleave', () => {
+      // $(this).toggleClass('cur')
+      alert(4444)
+    })
+    // on事件委派 绑ul上的 但是触发的是li
+    $('ul').on('click', 'li', () => {
+      alert(1111)
+    })
+    // 后来动态创建的也想绑定事件 也用on
+    let li = $('<li>houlaichuangjiande</li>')
+    $('ol').on('click', 'li', () => {
+      alert(3333)
+    })
+    $('ol').append(li)
+  })
+</script>
+</body>
+</html>
