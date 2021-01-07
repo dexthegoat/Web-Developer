@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 变量在某个范围内起作用和效果
+  // 全局作用域
+  var num = 10;
+
+  function f() {
+    var num = 20
+    console.log(num);
+  }
+  f() // 20 局部作用域
+
+  function f2() {
+    num2 = 20
+  }
+  f2()
+  console.log(num2); // 20 在函数里直接赋值的num2 也算全局变量 函数外能访问到
+  // 全局变量只有浏览器关闭时候才会销毁 比较占内存
+  // 局部变量 当我们程序执行完毕就会销毁 比较节约资源
+  if (3 < 5) {
+    var num3 = 10
+  }
+  console.log(num3); // 10 var没块级作用域
+  function f3() {
+    var num = 20
+    function func() {
+      console.log(num); // 能访问外部的20 如果上一级没有num 就去外面全局的var num=10
+      // 这叫链式查找(作用域链) 就近原则
+    }
+  }
+</script>
+</body>
+</html>
