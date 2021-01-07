@@ -167,7 +167,7 @@ async function runSetup() {
 
   await movieCollection.insertMany(listOfMovies);
 
-  return await JSON.stringify(movieCollection.find().toArray());
+  return JSON.stringify(movieCollection.find().toArray());
 }
 
 // By exporting a function, we can run
