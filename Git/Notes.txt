@@ -1,0 +1,45 @@
+一、基础操作
+
+01.git初始化：git init
+
+02.配置用户名：git config --global user.name "tangjiu"
+
+03.配置邮箱：git config --global user.email "tangjiusheng@sinonc.cn"
+
+04.查看当前状态：git status
+
+05.把文件放到git暂存区存储：git add ./文件名 或者空则为为全部文件
+
+06.一次性把文件提交到本地存储：git commit --all -m '提交说明 '
+
+07.创建文件.gitignore可写文件过滤规则
+
+08.查看历史提交的日志：git log
+
+09.可以看到简洁版的日志：git log --oneline
+
+10.回退到指定版本：git reset d4478f1
+
+11.回退版本错误：Unstaged changes after reset，解决的办法如下2中办法：
+
+    1）.git add .     git reset --hard；  2）. git stash    git stash drop
+
+12.切换版本的记录:git reflog
+
+二、分支操作
+
+01.查询当前分支：git branch
+
+02.创建了一个dev分支：git branch dev
+
+03.切换到dev分支：git checkout dev
+
+04.当前分支与指定的分支dev进行合并：git merge dev
+
+三、远程操作
+
+01.克隆远程仓库：git clone 地址
+
+02.从远程master获取代码并合并本地的版本：git pull 地址 master
+
+03.把当前分支的内容上传到远程的master分支上：git push 地址 master
