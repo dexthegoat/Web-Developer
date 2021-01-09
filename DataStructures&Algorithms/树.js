@@ -69,6 +69,84 @@ function BST() {
       handler(node.key)
     }
   }
+
+  BST.prototype.min = () => {
+    let node = this.root
+    let key = null
+    while (node != null) {
+      key = node.key
+      node = node.left
+    }
+    return key
+  }
+
+  BST.prototype.max = () => {
+    let node = this.root
+    let key = null
+    while (node != null) {
+      key = node.key
+      node = node.right
+    }
+    return key
+  }
+
+  BST.prototype.contains = key => {
+    return this.privateContains(this.root, key)
+  }
+
+  BST.prototype.privateContains = (node, key) => {
+    if (!node) {
+      return false
+    }
+    if (node.key > key) {
+      return this.privateContains(node.left, key)
+    } else if (node.key < key) {
+      return this.privateContains(node.right, key)
+    } else {
+      return true
+    }
+  }
+
+  BST.prototype.getSmallest = node => {
+    if (node.left == null) {
+      return node;
+    } else {
+      return this.getSmallest(node.left);
+    }
+  };
+
+  BST.prototype.removeNode = (node, data) => {
+    if (node == null) {
+      return null;
+    }
+    if (data == node.data) {
+      // 没有子节点（子树）
+      if (node.left == null && node.right == null) {
+        return null;
+      }
+      // 只有右子节点（子树）
+      else if (node.left == null) {
+        return node.right;
+      }
+      // 只有左子节点（子树）
+      else if (node.right == null) {
+        return node.left;
+      }
+      // 有两个子节点（子树）
+      else {
+        let temp = this.getSmallest(node.right);
+        node.data = temp.data;
+        node.right = this.removeNode(node.right, temp.data);
+        return node;
+      }
+    } else if (data < node.data) {
+      node.left = this.removeNode(node.left, data);
+      return node;
+    } else {
+      node.right = this.removeNode(node.right, data);
+      return node;
+    }
+  }
 }
 
 let bst = new BST()
@@ -102,3 +180,6 @@ bst.postOrder(key => {
   res3 += key + ' '
 })
 console.log(res3)
+console.log(bst.max());
+console.log(bst.min());
+console.log(bst.contains(25));
