@@ -30,5 +30,15 @@ app.post('/json', (req, res) => {
   res.send(req.body)
 })
 
+app.get('/readyState', (req, res) => {
+  res.send('hello')
+})
+
+app.get('/error', (req, res) => {
+  // 500 internal server error
+  // 400 服务器返回的结果不是预期的
+  res.status(400).send('Not OK')
+})
+
 app.listen(3000)
 console.log('server started successfully')
