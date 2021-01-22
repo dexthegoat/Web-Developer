@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  let xhr = new XMLHttpRequest();
+  // xhr.open('get', 'http://localhost:3000/first')
+  xhr.open('get', 'http://localhost:3000/res')
+  xhr.send()
+  xhr.onload = () => {
+    let res = JSON.parse(xhr.responseText)
+    console.log(res)
+    document.body.innerHTML = '<h2>' + res.name + '</h2>'
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>
+  <input type="text" id="username">
+</p>
+<p>
+  <input type="text" id="age">
+</p>
+<p>
+  <input type="button" value="提交" id="btn">
+</p>
+<script>
+  let username = document.getElementById('username')
+  let age = document.getElementById('age')
+
+  document.getElementById('btn').onclick = () => {
+    let xhr = new XMLHttpRequest()
+    let nameVal = username.value
+    let ageVal = age.value
+    let params = 'username=' + nameVal + '&age=' + ageVal
+    xhr.open('post', 'http://localhost:3000/post')
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.send(params)
+    xhr.onload = () => console.log(xhr.responseText)
+  }
+</script>
+</body>
+</html>
