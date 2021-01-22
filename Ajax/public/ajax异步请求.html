@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  let xhr = new XMLHttpRequest();
+  xhr.open('get', 'http://localhost:3000/first')
+  xhr.send()
+  // 异步代码不会等待 先log 1 等他有了返回结果才执行事件处理函数
+  xhr.onload = () => {
+    console.log('2')
+    console.log(xhr.responseText)
+  }
+  console.log('1')
+</script>
+</body>
+</html>

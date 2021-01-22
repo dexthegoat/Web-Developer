@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="btn">发送ajax request</button>
+<script type="text/javascript">
+
+  document.getElementById('btn').onclick = () => {
+    let xhr = new XMLHttpRequest()
+    xhr.open('get', 'http://localhost:3000/cache?t=' + Math.random())
+    xhr.send()
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        alert(xhr.responseText)
+      }
+    }
+  }
+</script>
+</body>
+</html>
