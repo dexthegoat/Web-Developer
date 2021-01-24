@@ -20,7 +20,8 @@ console.log(name); // zs
 console.log(age); // 20
 console.log(sex); // male
 // 起别名
-let {name: myName, age: myAge, sex: mySex} = person
+let {name: myName, age: myAge, sex: mySex, job = 'Web Developer'} = person
 console.log(myName);
 console.log(myAge);
 console.log(mySex);
+console.log(job)

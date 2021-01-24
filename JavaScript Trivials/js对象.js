@@ -41,4 +41,21 @@ for (let k in ldh) {
   console.log(ldh[k]) // 属性值
 }
 
+for (let k of ldh) {
+  // ...
+}
+
+const nameKey = 'name'
+const ageKey = 'age'
+const jobKey = 'job'
+
+let person = {
+  [nameKey]: 'jsy',
+  [ageKey]: 24,
+  [jobKey]: 'Web developer',
+  sayName(name) {
+    console.log(name)
+  }
+}
+person.sayName('Mike')
 
