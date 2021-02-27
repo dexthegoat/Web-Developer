@@ -12,14 +12,14 @@
 <script>
   // 函数的调用方式
 
-  // 1. 普通函数
+  // 1. 普通函数 this -> window
   function fn() {
     console.log('人生的巅峰');
 
   }
 
   // fn();   fn.call()
-  // 2. 对象的方法
+  // 2. 对象的方法 this -> a
   var o = {
     sayHi: function () {
       console.log('人生的巅峰');
@@ -32,11 +32,11 @@
   function Star() {
   }
   new Star();
-  // 4. 绑定事件函数
+  // 4. 绑定事件函数 this -> btn
   // btn.onclick = function() {};   // 点击了按钮就可以调用这个函数
-  // 5. 定时器函数
+  // 5. 定时器函数 this -> window
   // setInterval(function() {}, 1000);  这个函数是定时器自动1秒钟调用一次
-  // 6. 立即执行函数
+  // 6. 立即执行函数 this -> window
   (function () {
     console.log('人生的巅峰');
   })();

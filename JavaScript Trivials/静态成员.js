@@ -8,6 +8,7 @@ function Star(uname, age) {
     console.log('i can sing')
   }
 }
+
 let ldh = new Star('ldh', 88)
 ldh.sing()
 Star.sex = 'male' // 静态成员
