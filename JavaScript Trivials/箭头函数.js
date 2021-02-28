@@ -9,7 +9,7 @@ console.log(sum(10, 20))
 const fn2 = v => console.log(v)
 fn2('jsy')
 
-// 箭头函数没有自己的this 他被定义在哪 函数里的this就指向哪
+// 箭头函数没有自己的this 他被定义在哪 this就指向哪
 function f() {
   console.log(this)
   return () => {
